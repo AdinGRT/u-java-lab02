@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import peliculas.datos.*;
 import peliculas.domain.Pelicula;
 import peliculas.excepciones.AccesoDatosEx;
+import peliculas.excepciones.LecturaDatosEx;
 
 /**
  *
@@ -33,6 +34,15 @@ public class CatalogoPeliculasImpl implements ICatalogoPeliculas {
 
     @Override
     public void listarPeliculas() {
+        try {
+            var peliculas = this.datos.listar(NOMBRE_RECURSO);
+            for(var pelicula: peliculas) {
+                System.out.println("pelicula = " + pelicula);
+            }
+        } catch (LecturaDatosEx ex) {
+            System.out.println("Error de acceso a datos");
+            ex.printStackTrace(System.out);
+        }
     }
 
     @Override
