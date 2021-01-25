@@ -59,6 +59,18 @@ public class CatalogoPeliculasImpl implements ICatalogoPeliculas {
 
     @Override
     public void iniciarCatalogoPeliculas() {
+        try {
+            if(this.datos.existe(NOMBRE_RECURSO)){
+                datos.borrar(NOMBRE_RECURSO);
+                datos.crear(NOMBRE_RECURSO);
+            }
+            else {
+                datos.crear(NOMBRE_RECURSO);
+            }
+        } catch (AccesoDatosEx ex) {
+            System.out.println("Error al inicial catologo de peliculas");
+            ex.printStackTrace(System.out);
+        }
     }
     
 }
