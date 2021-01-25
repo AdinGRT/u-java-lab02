@@ -8,7 +8,7 @@ import peliculas.excepciones.*;
  *
  * @author adingrt
  */
-public interface AccesoDatos {
+public interface IAccesoDatos {
     boolean existe(String nombreRecurso) throws AccesoDatosEx;
     
     List<Pelicula> listar(String nombreRecurso) throws LecturaDatosEx;
