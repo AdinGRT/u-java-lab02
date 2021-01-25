@@ -1,11 +1,8 @@
 package peliculas.servicio;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import peliculas.datos.*;
 import peliculas.domain.Pelicula;
 import peliculas.excepciones.AccesoDatosEx;
-import peliculas.excepciones.LecturaDatosEx;
 
 /**
  *
