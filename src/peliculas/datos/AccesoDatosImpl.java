@@ -14,7 +14,7 @@ import peliculas.excepciones.*;
 public class AccesoDatosImpl implements IAccesoDatos {
 
     @Override
-    public boolean existe(String nombreRecurso) throws AccesoDatosEx {
+    public boolean existe(String nombreRecurso) {
         var archivo = new File(nombreRecurso);
         return archivo.exists();
     }
@@ -100,7 +100,11 @@ public class AccesoDatosImpl implements IAccesoDatos {
     }
 
     @Override
-    public void borrar(String nombreRecurso) throws AccesoDatosEx {
+    public void borrar(String nombreRecurso) {
+        var archivo = new File(nombreRecurso);
+        if(archivo.exists())
+            archivo.delete();
+        System.out.println("Se ha borrado el archivo");
     }
     
 }
