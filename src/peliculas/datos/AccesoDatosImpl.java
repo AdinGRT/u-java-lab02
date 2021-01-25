@@ -86,6 +86,17 @@ public class AccesoDatosImpl implements IAccesoDatos {
 
     @Override
     public void crear(String nombreRecurso) throws AccesoDatosEx {
+        var archivo = new File(nombreRecurso);
+        
+        try {
+            var salida = new PrintWriter(new FileWriter(archivo));
+            salida.close();
+            System.out.println("Se ha creado el archivo");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            throw new AccesoDatosEx("Excepcion al crear archivo: " + ex.getMessage());
+        }
+        
     }
 
     @Override
